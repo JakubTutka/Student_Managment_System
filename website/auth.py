@@ -33,6 +33,11 @@ def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
+@auth.route('/map')
+def map():
+    return render_template('map.html', user=current_user)
+
+
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
     if request.method == 'POST':

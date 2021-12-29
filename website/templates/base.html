@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html>
+<style>
+    body {
+    padding-bottom: 250px;
+}
+    .essa {
+    width: 150px; /* You can set the dimensions to whatever you want */
+    height: 100px;
+    object-fit: cover;}
+    {# chowanie sie stopki #}
+    @media screen and (max-width: 1000px) {
+    footer {
+        visibility: hidden;
+        display: none;
+    }
+
+}
+    </style>
   <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link
@@ -30,6 +48,8 @@
                   <a class="nav-item nav-link" id='login' href="/login">Login</a>
                   <a class="nav-item nav-link" id='signUp' href="/sign-up">Sign Up</a>
                   {% endif %}
+              <a class="nav-item nav-link" id="agh" href="https://www.agh.edu.pl/">Main AGH Page</a>
+              <a class="nav-item nav-link" id="map" href="/map">Map</a>
               </div>
           </div>
       </nav>
@@ -80,5 +100,130 @@
           type="text/javascript"
           src="{{ url_for('static', filename='index.js') }}"
         ></script>
+{#  stopka na dole strony#}
+      <div class="hidden-xs">
+<footer class="text-center text-white fixed-bottom" style="background-color: #caced1;">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Images -->
+    <section class="">
+      <div class="row">
+        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+          <div
+            class="bg-image hover-overlay ripple shadow-1-strong rounded"
+            data-ripple-color="light"
+          >
+            <img
+              src="/static/agh1.jpg"
+              class="w-100 rounded essa"
+            />
+            <a href="https://www.agh.edu.pl/">
+              <div
+                class="mask"
+                style="background-color: rgba(251, 251, 251, 0.2);"
+              ></div>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+          <div
+            class="bg-image hover-overlay ripple shadow-1-strong rounded"
+            data-ripple-color="light"
+          >
+            <img
+              src="/static/agh2.jpg"
+              class="w-100 rounded essa"
+            />
+            <a href="https://www.agh.edu.pl/">
+              <div
+                class="mask"
+                style="background-color: rgba(251, 251, 251, 0.2);"
+              ></div>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+          <div
+            class="bg-image hover-overlay ripple shadow-1-strong rounded"
+            data-ripple-color="light"
+          >
+            <img
+              src="/static/agh3.jpg"
+              class="w-100 rounded essa"
+            />
+            <a href="https://www.agh.edu.pl/">
+              <div
+                class="mask"
+                style="background-color: rgba(251, 251, 251, 0.2);"
+              ></div>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+          <div
+            class="bg-image hover-overlay ripple shadow-1-strong rounded"
+            data-ripple-color="light"
+          >
+            <img
+              src="/static/agh4.jpg"
+              class="w-100 rounded essa"
+            />
+            <a href="https://www.agh.edu.pl/">
+              <div
+                class="mask"
+                style="background-color: rgba(251, 251, 251, 0.2);"
+              ></div>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+          <div
+            class="bg-image hover-overlay ripple shadow-1-strong rounded"
+            data-ripple-color="light"
+          >
+            <img
+              src="/static/agh5.jpg"
+              class="w-100 rounded essa"
+            />
+            <a href="https://www.agh.edu.pl/">
+              <div
+                class="mask"
+                style="background-color: rgba(251, 251, 251, 0.2);"
+              ></div>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+          <div
+            class="bg-image hover-overlay ripple shadow-1-strong rounded"
+            data-ripple-color="light "
+          >
+            <img
+              src="/static/agh6.jpg"
+              class="w-100 rounded essa"
+
+            />
+            <a href="https://www.agh.edu.pl/">
+              <div
+                class="mask"
+                style="background-color: rgba(251, 251, 251, 0.2);"
+              ></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Section: Images -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright:
+    <a class="text-white" href="https://gitlab.kis.agh.edu.pl/bd-ti-2021-2022/g21">Rokoko & Big Poppa</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+</div>
   </body>
 </html>
