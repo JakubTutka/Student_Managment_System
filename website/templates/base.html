@@ -44,11 +44,14 @@
                   {% if user.is_authenticated %}
                   <a class="nav-item nav-link" id='home' href="/">Home</a>
                   <a class="nav-item nav-link" id='logout' href="/logout">Logout</a>
+                  <a class="nav-item nav-link" id="grades" href="/grades">Grades</a>
+                  <a class="nav-item nav-link" id="timetable" href="/timetable">Timetable</a>
+                  <a class="nav-item nav-link" id="buildings" href="/buildings">Buildings</a>
                   {% else %}
                   <a class="nav-item nav-link" id='login' href="/login">Login</a>
                   <a class="nav-item nav-link" id='signUp' href="/sign-up">Sign Up</a>
                   {% endif %}
-              <a class="nav-item nav-link" id="agh" href="https://www.agh.edu.pl/">Main AGH Page</a>
+              <a class="nav-item nav-link ms-auto" id="agh" href="https://www.agh.edu.pl/">Main AGH Page</a>
               <a class="nav-item nav-link" id="map" href="/map">Map</a>
               </div>
           </div>

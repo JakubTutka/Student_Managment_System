@@ -1,24 +1,28 @@
 {% extends "base.html" %}{%  block title %}Sign Up{%  endblock %}
 {% block content %}
 <form method="POST">
-    <h3 align="center">Sign Up</h3>
+<br />
+    <h2 align="center">Sign Up to AGH Student Management System</h2>
+    <hr/>
     <div class="form-group">
-        <label form="email">Email Address</label>
+        <h5><label form="email">Email Address</label></h5>
         <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email!"/>
     </div>
     <div class="form-group">
-        <label form="firstName">First Name</label>
+        <h5><label form="firstName">First Name</label></h5>
         <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter your name!"/>
     </div>
     <div class="form-group">
-        <label form="password1">Password</label>
+        <h5><label form="password1">Password</label></h5>
         <input type="password" class="form-control" id="password1" name="password1" placeholder="Enter your password!"/>
     </div>
     <div class="form-group">
-        <label form="password2">Password Confirm</label>
+        <h5><label form="password2">Password Confirm</label></h5>
         <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm your password!"/>
     </div>
     <br />
+    <div class="text-center">
     <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
 </form>
 {% endblock %}

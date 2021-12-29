@@ -37,6 +37,17 @@ def logout():
 def map():
     return render_template('map.html', user=current_user)
 
+@auth.route('/grades')
+def grades():
+    return render_template('grades.html', user=current_user)
+
+@auth.route('/timetable')
+def timetable():
+    return render_template('timetable.html', user=current_user)
+
+@auth.route('/buildings')
+def buildings():
+    return render_template('buildings.html', user=current_user)
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():

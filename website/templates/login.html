@@ -1,16 +1,40 @@
 {% extends "base.html" %}{%  block title %}Login{%  endblock %}
 {% block content %}
+    <div class="center-block">
 <form method="POST">
-    <h3 align="center">Login</h3>
+    <h2 align="center">Login to Student Management System </h2>
+    <hr/>
     <div class="form-group">
-        <label form="email">Email Address</label>
+        <h5><label form="email">Email Address</label></h5>
         <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email!"/>
     </div>
     <div class="form-group">
-        <label form="password">Password</label>
+        <h5><label form="password">Password</label></h5>
         <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password!"/>
     </div>
     <br />
+    <div class="text-center">
     <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
 </form>
+    </div>
+    <hr/>
+    <hr/>
+<div class="container">
+  <div class="row">
+    <div class="col-sm text-center">
+        <h5>Aktualności</h5>
+        a tutaj cos ze strony agh sie wrzuci
+    </div>
+    <div class="col-sm text-center">
+      <h5>Spocone st00pki kamila</h5>
+        tutaj moze jakis obrazek czy filmik
+    </div>
+    <div class="col-sm text-center">
+      <h5>Last seen users</h5>
+        Nie mam pojecia jak to zrobic, ale to pewnie jak bedzie bazka
+    </div>
+  </div>
+</div>
+
 {% endblock %}
