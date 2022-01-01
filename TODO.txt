@@ -1,4 +1,8 @@
+TODO:
 poprawic maina strone,
 bazki porobic pieknie,
 zrobic zeby bardziej wygladalo jak strona usosa
 spotkanie projektowe z Panem Zaworskim
+
+DONE:
+pytanie jak poblokowac strony zeby nie dalo sie rutowac na np blog/rokoko MYK ZROBIONE

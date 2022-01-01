@@ -2,8 +2,12 @@
 %}
 {#  OGÓLNIE TE NOTATKI MOGA ZOSTAC ALE JAKO JAKAS KOLEJNA PODSTRONA A NIE GLOWNY HOME  #}
 {#  NA GŁOWNYM HOMIE DALBYM ZEBY MOZNA BYLO WYBRAC OCENKI CZY ZOBACZYC INNE RZECZY  #}
+    <div>
 <h1 align="center">Student Page</h1>
-<ul class="list-group list-group-flush" id="notes">
+    <hr/>
+<div class="row">
+<div class="col">
+        <ul class="list-group list-group-flush" id="notes">
   {% for note in user.notes %}
   <li class="list-group-item">
     {{ note.data }}
@@ -13,6 +17,8 @@
   </li>
   {% endfor %}
 </ul>
+</div>
+ <div class="col">
 <form method="POST">
   <textarea name="note" id="note" class="form-control"></textarea>
   <br />
@@ -20,6 +26,13 @@
     <button type="submit" class="btn btn-primary">Add Note</button>
   </div>
 </form>
+ </div>
+<div class="w-100"></div>
+<div class="col">
 {#  tylko pomysl do wrzucenia tego jako zeby bylo jako maly kwadracik w homie  #}
     <iframe width="1280" height="720" src="https://www.youtube.com/embed/mcv0coLyh_k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+    </div>
+
 {% endblock %}
