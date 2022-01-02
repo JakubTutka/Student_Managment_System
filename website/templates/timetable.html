@@ -1,75 +1,295 @@
-{% extends "base.html" %} {% block title %}Timetable{% endblock %} {% block content
+{% extends "base.html" %} {% block title %}Grades{% endblock %} {% block content
 %}
-<h1 align="center">Timetable</h1>
-{#  gowno do poprawki  #}
-<div class="container">
-    <table class="table table-bordered table-hover">
-        <thead class="thead-inverse">
-          <tr>
-            <th>Location</th>
-            <th>Monday - Friday</th>
-            <th>Weekends</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-                <strong>South West Office Bldg.</strong><br>
-                1670 Martine St.<br>
-                Long Island, NY 20320<br>
-                212 555-1212<br>
-            </td>
-            <td>
-            <label>Mon.</label> 8:30 am - 5:30 pm<br>
-            <label>Tue.</label> 8:30 am - 5:30 pm<br>
-            <label>Wed.</label> closed<br>
-            <label>Thu.</label> 8:30 am - 5:30 pm<br>
-            <label>Fri.</label> 8:30 am - 5:30 pm<br>
-            </td>
-            <td>
-            <label>Sat.</label> 8:00 am - 1:00 pm<br>
-            <label>Sun.</label> closed<br>
-            </td>
-          </tr>
-          <tr>
-            <td>
-                <strong>Bay State Medical Ctr.</strong><br>
-                1670 N. Main St.<br>
-                Springfield, MA 01102<br>
-                413 555-1212<br>
-            </td>
-            <td>
-            <label>Mon.</label> 8:30 am - 5:30 pm<br>
-            <label>Tue.</label> 8:30 am - 5:30 pm<br>
-            <label>Wed.</label> closed<br>
-            <label>Thu.</label> 8:30 am - 5:30 pm<br>
-            <label>Fri.</label> 8:30 am - 5:30 pm<br>
-            </td>
-            <td>
-            <label>Sat.</label> 8:00 am - 1:00 pm<br>
-            <label>Sun.</label> closed<br>
-            </td>
-          </tr>
-          <tr>
-            <td>
-                <strong>Health South</strong><br>
-                140 Congress St.<br>
-                Hartford, CT 02901<br>
-                850 555-1212<br>
-            </td>
-            <td>
-            <label>Mon.</label> 8:30 am - 4:30 pm<br>
-            <label>Tue.</label> closed<br>
-            <label>Wed.</label> closed<br>
-            <label>Thu.</label> 9:00 am - 5:00 pm<br>
-            <label>Fri.</label> 9:00 am - 5:00 pm<br>
-            </td>
-            <td>
-            <label>Sat.</label> 10:00 am - 3:00 pm<br>
-            <label>Sun.</label> closed<br>
-            </td>
-          </tr>
-        </tbody>
-    </table>
-</div>
+    <style>
+    body{
+    margin-top:20px;
+}
+.bg-light-gray {
+    background-color: #f7f7f7;
+}
+.table-bordered thead td, .table-bordered thead th {
+    border-bottom-width: 2px;
+}
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+.table-bordered td, .table-bordered th {
+    border: 1px solid #dee2e6;
+}
+
+
+.bg-sky.box-shadow {
+    box-shadow: 0px 5px 0px 0px #00a2a7
+}
+
+.bg-orange.box-shadow {
+    box-shadow: 0px 5px 0px 0px #af4305
+}
+
+.bg-green.box-shadow {
+    box-shadow: 0px 5px 0px 0px #4ca520
+}
+
+.bg-yellow.box-shadow {
+    box-shadow: 0px 5px 0px 0px #dcbf02
+}
+
+.bg-pink.box-shadow {
+    box-shadow: 0px 5px 0px 0px #e82d8b
+}
+
+.bg-purple.box-shadow {
+    box-shadow: 0px 5px 0px 0px #8343e8
+}
+
+.bg-lightred.box-shadow {
+    box-shadow: 0px 5px 0px 0px #d84213
+}
+
+
+.bg-sky {
+    background-color: #02c2c7
+}
+
+.bg-orange {
+    background-color: #e95601
+}
+
+.bg-green {
+    background-color: #5bbd2a
+}
+
+.bg-yellow {
+    background-color: #f0d001
+}
+
+.bg-pink {
+    background-color: #ff48a4
+}
+
+.bg-purple {
+    background-color: #9d60ff
+}
+
+.bg-lightred {
+    background-color: #ff5722
+}
+
+.padding-15px-lr {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.padding-5px-tb {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.margin-10px-bottom {
+    margin-bottom: 10px;
+}
+.border-radius-5 {
+    border-radius: 5px;
+}
+
+.margin-10px-top {
+    margin-top: 10px;
+}
+.font-size14 {
+    font-size: 14px;
+}
+
+.text-light-gray {
+    color: #d6d5d5;
+}
+.font-size13 {
+    font-size: 13px;
+}
+
+.table-bordered td, .table-bordered th {
+    border: 1px solid #dee2e6;
+}
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+    </style>
+<h1 align="center">Student Timetable</h1>
+    <div class="container">
+                <div class="timetable-img text-center">
+                    <img src="img/content/timetable.png" alt="">
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center">
+                        <thead>
+                            <tr class="bg-light-gray">
+                                <th class="text-uppercase">Time
+                                </th>
+                                <th class="text-uppercase">Monday</th>
+                                <th class="text-uppercase">Tuesday</th>
+                                <th class="text-uppercase">Wednesday</th>
+                                <th class="text-uppercase">Thursday</th>
+                                <th class="text-uppercase">Friday</th>
+                                <th class="text-uppercase">Saturday</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="align-middle">09:00am</td>
+                                <td>
+                                    <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13">Dance</span>
+                                    <div class="margin-10px-top font-size14">9:00-10:00</div>
+                                    <div class="font-size13 text-light-gray">Ivana Wong</div>
+                                </td>
+                                <td>
+                                    <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
+                                    <div class="margin-10px-top font-size14">9:00-10:00</div>
+                                    <div class="font-size13 text-light-gray">Marta Healy</div>
+                                </td>
+
+                                <td>
+                                    <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
+                                    <div class="margin-10px-top font-size14">9:00-10:00</div>
+                                    <div class="font-size13 text-light-gray">Ivana Wong</div>
+                                </td>
+                                <td>
+                                    <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Dance</span>
+                                    <div class="margin-10px-top font-size14">9:00-10:00</div>
+                                    <div class="font-size13 text-light-gray">Ivana Wong</div>
+                                </td>
+                                <td>
+                                    <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Art</span>
+                                    <div class="margin-10px-top font-size14">9:00-10:00</div>
+                                    <div class="font-size13 text-light-gray">Kate Alley</div>
+                                </td>
+                                <td>
+                                    <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
+                                    <div class="margin-10px-top font-size14">9:00-10:00</div>
+                                    <div class="font-size13 text-light-gray">James Smith</div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="align-middle">10:00am</td>
+                                <td>
+                                    <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
+                                    <div class="margin-10px-top font-size14">10:00-11:00</div>
+                                    <div class="font-size13 text-light-gray">Ivana Wong</div>
+                                </td>
+                                <td class="bg-light-gray">
+
+                                </td>
+                                <td>
+                                    <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Art</span>
+                                    <div class="margin-10px-top font-size14">10:00-11:00</div>
+                                    <div class="font-size13 text-light-gray">Kate Alley</div>
+                                </td>
+                                <td>
+                                    <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
+                                    <div class="margin-10px-top font-size14">10:00-11:00</div>
+                                    <div class="font-size13 text-light-gray">Marta Healy</div>
+                                </td>
+                                <td>
+                                    <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
+                                    <div class="margin-10px-top font-size14">10:00-11:00</div>
+                                    <div class="font-size13 text-light-gray">James Smith</div>
+                                </td>
+                                <td class="bg-light-gray">
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="align-middle">11:00am</td>
+                                <td>
+                                    <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
+                                    <div class="margin-10px-top font-size14">11:00-12:00</div>
+                                </td>
+                                <td>
+                                    <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
+                                    <div class="margin-10px-top font-size14">11:00-12:00</div>
+                                </td>
+                                <td>
+                                    <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
+                                    <div class="margin-10px-top font-size14">11:00-12:00</div>
+                                </td>
+                                <td>
+                                    <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
+                                    <div class="margin-10px-top font-size14">11:00-12:00</div>
+                                </td>
+                                <td>
+                                    <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
+                                    <div class="margin-10px-top font-size14">11:00-12:00</div>
+                                </td>
+                                <td>
+                                    <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
+                                    <div class="margin-10px-top font-size14">11:00-12:00</div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="align-middle">12:00pm</td>
+                                <td class="bg-light-gray">
+
+                                </td>
+                                <td>
+                                    <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Art</span>
+                                    <div class="margin-10px-top font-size14">12:00-1:00</div>
+                                    <div class="font-size13 text-light-gray">Kate Alley</div>
+                                </td>
+                                <td>
+                                    <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Dance</span>
+                                    <div class="margin-10px-top font-size14">12:00-1:00</div>
+                                    <div class="font-size13 text-light-gray">Ivana Wong</div>
+                                </td>
+                                <td>
+                                    <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
+                                    <div class="margin-10px-top font-size14">12:00-1:00</div>
+                                    <div class="font-size13 text-light-gray">Ivana Wong</div>
+                                </td>
+                                <td class="bg-light-gray">
+
+                                </td>
+                                <td>
+                                    <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
+                                    <div class="margin-10px-top font-size14">12:00-1:00</div>
+                                    <div class="font-size13 text-light-gray">Marta Healy</div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="align-middle">01:00pm</td>
+                                <td>
+                                    <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
+                                    <div class="margin-10px-top font-size14">1:00-2:00</div>
+                                    <div class="font-size13 text-light-gray">James Smith</div>
+                                </td>
+                                <td>
+                                    <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
+                                    <div class="margin-10px-top font-size14">1:00-2:00</div>
+                                    <div class="font-size13 text-light-gray">Ivana Wong</div>
+                                </td>
+                                <td class="bg-light-gray">
+
+                                </td>
+                                <td>
+                                    <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
+                                    <div class="margin-10px-top font-size14">1:00-2:00</div>
+                                    <div class="font-size13 text-light-gray">James Smith</div>
+                                </td>
+                                <td>
+                                    <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
+                                    <div class="margin-10px-top font-size14">1:00-2:00</div>
+                                    <div class="font-size13 text-light-gray">Marta Healy</div>
+                                </td>
+                                <td>
+                                    <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
+                                    <div class="margin-10px-top font-size14">1:00-2:00</div>
+                                    <div class="font-size13 text-light-gray">Ivana Wong</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 {% endblock %}

@@ -1,5 +1,239 @@
-{% extends "base.html" %} {% block title %}Buildings{% endblock %} {% block content
+{% extends "base.html" %} {% block title %}Timetable{% endblock %} {% block content
 %}
 <h1 align="center">Buildings</h1>
-{#  tutaj bedzie branie z baz danych budynkow i wyswietlenia jakie sa w nich aktualnie zajecia np  #}
+{#  gowno do poprawki  #}
+<div class="container">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Building</th>
+            <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+            {#    tutaj jakies info o budynkach z bazki np#}
+                <strong>South West Office Bldg.</strong><br>
+                1670 Martine St.<br>
+                Long Island, NY 20320<br>
+                212 555-1212<br>
+            </td>
+            <td>
+            <label>Mon.</label> 8:30 am - 5:30 pm<br>
+            <label>Tue.</label> 8:30 am - 5:30 pm<br>
+            <label>Wed.</label> closed<br>
+            <label>Thu.</label> 8:30 am - 5:30 pm<br>
+            <label>Fri.</label> 8:30 am - 5:30 pm<br>
+            </td>
+            <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <strong>Bay State Medical Ctr.</strong><br>
+                1670 N. Main St.<br>
+                Springfield, MA 01102<br>
+                413 555-1212<br>
+            </td>
+            <td>
+            <label>Mon.</label> 8:30 am - 5:30 pm<br>
+            <label>Tue.</label> 8:30 am - 5:30 pm<br>
+            <label>Wed.</label> closed<br>
+            <label>Thu.</label> 8:30 am - 5:30 pm<br>
+            <label>Fri.</label> 8:30 am - 5:30 pm<br>
+            </td>
+            <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <strong>Health South</strong><br>
+                140 Congress St.<br>
+                Hartford, CT 02901<br>
+                850 555-1212<br>
+            </td>
+            <td>
+            <label>Mon.</label> 8:30 am - 4:30 pm<br>
+            <label>Tue.</label> closed<br>
+            <label>Wed.</label> closed<br>
+            <label>Thu.</label> 9:00 am - 5:00 pm<br>
+            <label>Fri.</label> 9:00 am - 5:00 pm<br>
+            </td>
+            <td>
+            <label>Sat.</label> 10:00 am - 3:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+          </tr>
+        <tr>
+            <td>
+                <strong>Health South</strong><br>
+                140 Congress St.<br>
+                Hartford, CT 02901<br>
+                850 555-1212<br>
+            </td>
+            <td>
+            <label>Mon.</label> 8:30 am - 4:30 pm<br>
+            <label>Tue.</label> closed<br>
+            <label>Wed.</label> closed<br>
+            <label>Thu.</label> 9:00 am - 5:00 pm<br>
+            <label>Fri.</label> 9:00 am - 5:00 pm<br>
+            </td>
+            <td>
+            <label>Sat.</label> 10:00 am - 3:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+          </tr>
+        <tr>
+            <td>
+                <strong>Health South</strong><br>
+                140 Congress St.<br>
+                Hartford, CT 02901<br>
+                850 555-1212<br>
+            </td>
+            <td>
+            <label>Mon.</label> 8:30 am - 4:30 pm<br>
+            <label>Tue.</label> closed<br>
+            <label>Wed.</label> closed<br>
+            <label>Thu.</label> 9:00 am - 5:00 pm<br>
+            <label>Fri.</label> 9:00 am - 5:00 pm<br>
+            </td>
+            <td>
+            <label>Sat.</label> 10:00 am - 3:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+          </tr>
+        <tr>
+            <td>
+                <strong>Health South</strong><br>
+                140 Congress St.<br>
+                Hartford, CT 02901<br>
+                850 555-1212<br>
+            </td>
+            <td>
+            <label>Mon.</label> 8:30 am - 4:30 pm<br>
+            <label>Tue.</label> closed<br>
+            <label>Wed.</label> closed<br>
+            <label>Thu.</label> 9:00 am - 5:00 pm<br>
+            <label>Fri.</label> 9:00 am - 5:00 pm<br>
+            </td>
+            <td>
+            <label>Sat.</label> 10:00 am - 3:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+          </tr>
+        <tr>
+            <td>
+                <strong>Health South</strong><br>
+                140 Congress St.<br>
+                Hartford, CT 02901<br>
+                850 555-1212<br>
+            </td>
+            <td>
+            <label>Mon.</label> 8:30 am - 4:30 pm<br>
+            <label>Tue.</label> closed<br>
+            <label>Wed.</label> closed<br>
+            <label>Thu.</label> 9:00 am - 5:00 pm<br>
+            <label>Fri.</label> 9:00 am - 5:00 pm<br>
+            </td>
+            <td>
+            <label>Sat.</label> 10:00 am - 3:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+              <td>
+            <label>Sat.</label> 8:00 am - 1:00 pm<br>
+            <label>Sun.</label> closed<br>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+</div>
 {% endblock %}

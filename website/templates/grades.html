@@ -1,4 +1,34 @@
 {% extends "base.html" %} {% block title %}Grades{% endblock %} {% block content
 %}
 <h1 align="center">Grades</h1>
+    <table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Semester</th>
+      <th scope="col">Name and Surname</th>
+      <th scope="col">Grade</th>
+      <th scope="col">Rated by</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">5</th>
+      <td>Mikołaj Sztaba</td>
+      <td>5</td>
+      <td>Konrad Zaworski</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fdsadsadat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@dasdasd</td>
+    </tr>
+  </tbody>
+</table>
 {% endblock %}
