@@ -58,6 +58,7 @@ def sign_up():
         first_name = request.form.get('firstName')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
+        surname = request.form.get('surname')
 
         user = User.query.filter_by(email=email).first()
         if user:
@@ -68,6 +69,8 @@ def sign_up():
             flash('Email must be greater than 3 characters.', category='error')
         elif len(first_name) < 2:
             flash('First name must be greater than 1 character.', category='error')
+        elif len(surname) < 2:
+            flash('Surname must be greater than 1 character.', category='error')
         elif password1 != password2:
             flash('Passwords don\'t match.', category='error')
         elif len(password1) < 7:
