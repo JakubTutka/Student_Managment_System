@@ -43,9 +43,17 @@ def map():
 def grades():
     return render_template('grades.html', user=current_user)
 
+@auth.route('/new_course')
+def new_course():
+    return render_template('new_course.html', user=current_user)
+
 @auth.route('/timetable')
 def timetable():
     return render_template('timetable.html', user=current_user)
+
+@auth.route('/faculties')
+def faculties():
+    return render_template('faculties.html', user=current_user)
 
 @auth.route('/buildings')
 def buildings():
