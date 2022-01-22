@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:sqlite:D:\Studia\Studia\SEMESTR V\BAZY DANYCH\flaskProject\website\database.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="database [2]" uuid="caaca89f-7da7-48c5-aced-2c423c3b971e">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\kubat\Desktop\BD Projekt\g21\website\database.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
