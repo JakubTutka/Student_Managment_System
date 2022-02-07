@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}{% endblock %}</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <style>
+      .link-border {
+        border-bottom: 5px solid transparent;
+        font-size: 18px !important;
+      }
+
+      .link-border:hover {
+        border-bottom: 3px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-light rounded-3 m-2 p-2"
+      style="background-color: #2278a2"
+    >
+      <a class="navbar-brand h1" href="/">System zarządzania studentami</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#collapsibleNavbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link active link-border" aria-current="page" href="/"
+              >Strona główna</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link link-border"
+              id="agh"
+              href="https://www.agh.edu.pl/"
+              >Main AGH Page</a
+            >
+          </li>
+        </ul>
+        {% if not session['user_id'] %}
+        <div class="navbar-nav ms-auto">
+          <a href="/sign-in"
+            ><button class="btn btn-success mx-2 my-2">Zaloguj się</button></a
+          >
+          <a href="/sign-up"
+            ><button class="btn btn-dark my-2">Rejestracja</button></a
+          >
+        </div>
+        {% elif session['user_type'] == 'Student' %}
+        <div class="navbar-nav ms-auto">
+          <a href="/logout"
+            ><button class="btn btn-dark my-2">Wyloguj się</button></a
+          >
+        </div>
+        {% elif session['user_type'] == 'Pracownik' %}
+        <div class="navbar-nav ms-auto">
+          <div class="dropdown">
+            <button
+              class="btn btn-dark my-2 dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Kursy
+            </button>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="/add-course">Dodaj kurs</a>
+              <a class="dropdown-item" href="/my-courses">Zobacz swoje kursy</a>
+            </div>
+          </div>
+          <a href="/create-worker-account"
+            ><button class="btn btn-dark mx-2 my-2">
+              Stwórz konto pracownika
+            </button></a
+          >
+          <a href="/sign-up"
+            ><button class="btn btn-dark mx-2 my-2">
+              Stwórz konto studenta
+            </button></a
+          >
+          <a href="/logout"
+            ><button class="btn btn-dark my-2">Wyloguj się</button></a
+          >
+        </div>
+        {% endif %}
+      </div>
+    </nav>
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-primary"><b>{{ message }}</b></div>
+    {% endfor %} {% block content %}{% endblock %}
+    <footer
+      class="text-center text-white fixed-bottom"
+      style="background-color: #caced1"
+    >
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2022 Copyright:
+        <a
+          class="text-white"
+          href="https://gitlab.kis.agh.edu.pl/bd-ti-2021-2022/g21"
+          >Rokoko & Big Poppa</a
+        >
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

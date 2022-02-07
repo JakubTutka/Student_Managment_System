@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{%  block title %}Sign Up{%  endblock %}
+{% block content %}
+<div class="container" style="width: 60%;">
+    <div class="card rounded-3">
+        <div class="card-header text-center">
+            <h2>Rejestracja studenta</h2>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="form-group">
+                    <label for="firstName">Imię</label>
+                    <input type="text" class=form-control id="firstName" name="first_name">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Nazwisko</label>
+                    <input type="text" class=form-control id="lastName" name="last_name">
+                </div>
+                <div class="form-group">
+                    <label for="password">Hasło</label>
+                    <input type="password" class=form-control id="password" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="faculty">Wydział</label>
+                    <select class="form-control" id="faculty" name="faculty">
+                        {% for name in faculties %}
+                            <option value="{{ name[0] }}">{{ name[1] }}  {{ name[2] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <input type="submit" value="Zajerestruj się!" class="btn btn-primary mt-2">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
