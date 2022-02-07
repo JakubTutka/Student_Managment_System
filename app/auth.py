@@ -35,7 +35,7 @@ def sign_in():
 
         cursor.execute(
             "SELECT user_id, email, password, type_of_user FROM users WHERE email=%s", (email,))
-        
+
         user = cursor.fetchone()
 
         if user is None or not check_password_hash(user[2], password):
@@ -61,8 +61,8 @@ def sign_up():
     cursor = mysql.get_db().cursor()
 
     if request.method == 'POST':
-        fname = request.form['first_name']
-        lname = request.form['last_name']
+        fname = request.form['first_name'].strip()
+        lname = request.form['last_name'].strip()
         password = request.form['password']
         email = get_user_email(fname, lname)
         faculty_id = request.form['faculty']
@@ -88,6 +88,45 @@ def sign_up():
     faculties = cursor.fetchall()
 
     return render_template('auth/sign_up.html', faculties=faculties)
+
+
+@bp.route('/create-worker-account', methods=('POST', 'GET'))
+def create_worker_accounr():
+    ts = time.time()
+    timestamp = datetime.datetime.fromtimestamp(
+    ts).strftime('%Y-%m-%d %H:%M:%S')
+    cursor = mysql.get_db().cursor()
+
+    if request.method == 'POST':
+        fname = request.form['first_name'].strip()
+        lname = request.form['last_name'].strip()
+        password = request.form['password']
+        email = get_user_email(fname, lname)
+        degree = request.form['degree']
+        faculty_id = request.form['faculty']
+        error = None
+
+        if not fname or len(fname) < 3 or len(fname) > 45:
+            error = 'Nieprawidłowe imię (od 3 do 45 znaków)'
+        elif not lname or len(lname) < 3 or len(lname) > 45:
+            error = 'Nieprawidłowe nazwisko (od 3 do 45 znaków)'
+        elif not password or len(password) < 8 or len(password) > 45:
+            error = 'Nieprawidlowe hasło (od 8 do 45 znaków)'
+
+        if error is None:
+            cursor.execute("INSERT INTO users (email, password, first_name, last_name, creation_date, type_of_user, degree, faculty_id) VALUES (%s, %s, %s, %s, %s, 'Pracownik', %s, %s)",
+                           (email, generate_password_hash(password), fname, lname, timestamp, degree, faculty_id))
+            mysql.get_db().commit()
+            flash('Pomyślnie zajerestrowano! Twój adres email to: ' + email)
+            return redirect(url_for("views.index"))
+
+        flash(error)
+
+    cursor.execute("SELECT faculty_id, name_short, name_full FROM faculties")
+    faculties = cursor.fetchall()
+    return render_template('auth/create_worker_account.html', faculties=faculties) 
+
+
 
 @bp.route('/logout')
 def logout():
