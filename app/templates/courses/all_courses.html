@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block title %}Moje kursy{% endblock %} {% block
+content %}
+<div class="container">
+  <div class="row">
+    {% for course in courses %}
+    <div class="col-md-3 mb-2">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">{{ course[1] }}</h5>
+          <p class="card-text">
+            {{ course[2] }}
+          </p>
+          <a href="{{ url_for('courses.show_course_info', id=course[0])}}" class="btn btn-primary">Zobacz</a>
+          {% if session['user_type'] == 'Pracownik' %}
+          <a href="/delete-course/{{ course[0] }}" class="btn btn-danger">Usuń</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block title %} {{ title }}{% endblock %} {% block
+content %}
+<div class="container">
+  <h2>{{ title[0] }}</h2>
+  <p>{{ title[1] }}</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nr.</th>
+        <th scope="col">Imię</th>
+        <th scope="col">Nazwisko</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Oceny</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for student in students %}
+        <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ student[1] }}</td>
+            <td>{{ student[2] }}</td>
+            <td>{{ student[3] }}</td>
+
+            {% if session['user_id'] == student[0] %}
+            <td><a href="{{ url_for('courses.show_user_grades', cid=cid, uid=student[0])}}"><button class="btn btn-success">Oceny</button></a></td>
+            {% endif %}
+
+            {% if session['user_type'] == 'Pracownik' %}
+            <td><a href="/course/{{ cid }}/delete-student/{{ student[0]}}"><button class="btn btn-danger">Wypisz</button></a></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %} {% block title %} {{ title }}{% endblock %} {% block
+content %}
+<div class="container">
+  <h2 style="text-align: center">{{ title }}</h1>
+  <div class="row justify-content-center">
+    {% if session['user_type'] == 'Pracownik'%}
+    <div class="col-md-4">
+        <form method="post">    
+            <select class="form-select" id="mark" name="mark">
+                <option value="2.0">2.0</option>
+                <option selected value="3.0">3.0</option>
+                <option value="3.5">3.5</option>
+                <option value="4.0">4.0</option>
+                <option value="4.5">4.5</option>
+                <option value="5.0">5.0</option>
+            </select>
+            <input type="submit" value="Dodaj ocene" class="btn btn-primary mt-2">
+        </form>
+    </div>
+    {% endif %}
+    <div class="col-md-4">
+        <h3>Średnia ocena: {{ avg_grade[0] }}</h3>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nr.</th>
+        <th scope="col">Ocena</th>
+        <th scope="col">Data</th>
+        <th scope="col">Wystawiona przez</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for mark in marks %}
+      <tr>
+        <th scope="row">{{ loop.index }}</th>
+        <td>{{ mark[1] }}</td>
+        <td>{{ mark[2] }}</td>
+        <td>{{ mark[3] }}  {{ mark[4] }}</td>
+        {% if session['user_type'] == 'Pracownik'%}
+        <td>
+          <a
+            href="/course/{{ cid }}/grades/{{ uid }}/delete/{{ mark[0] }}"
+            ><button class="btn btn-danger">Usuń</button></a
+          >
+        </td>
+        {% endif %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

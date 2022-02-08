@@ -1,4 +1,3 @@
-from datetime import datetime
 import functools
 from flask import (
     Blueprint, redirect, render_template, request, url_for, flash, session, logging
@@ -64,7 +63,7 @@ def sign_up():
         fname = request.form['first_name'].strip()
         lname = request.form['last_name'].strip()
         password = request.form['password']
-        email = get_user_email(fname, lname)
+        email = get_user_email(fname, lname, 'student')
         faculty_id = request.form['faculty']
         error = None
 
@@ -101,7 +100,7 @@ def create_worker_accounr():
         fname = request.form['first_name'].strip()
         lname = request.form['last_name'].strip()
         password = request.form['password']
-        email = get_user_email(fname, lname)
+        email = get_user_email(fname, lname, 'pracownik')
         degree = request.form['degree']
         faculty_id = request.form['faculty']
         error = None
@@ -133,9 +132,9 @@ def logout():
     session.clear()
     return redirect(url_for('views.index'))
 
-def get_user_email(first_name, last_name):
+def get_user_email(first_name, last_name,type):
     cursor = mysql.get_db().cursor()
-    cursor.execute("SELECT create_email(%s, %s)", (first_name, last_name))
+    cursor.execute("SELECT create_email(%s, %s,%s)", (first_name, last_name, type))
     result = cursor.fetchone()
     email = result[0].lower()
 

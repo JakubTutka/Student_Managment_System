@@ -62,7 +62,8 @@
         </div>
         {% elif session['user_type'] == 'Student' %}
         <div class="navbar-nav ms-auto">
-          <p class="my-2 mx-2"><b>{{ user }}</b></p>
+          <a class="btn btn-success my-2 mx-2" href="/courses">Zobacz swoje kursy</a>
+          <p class="my-2 mx-2"><b>{{ username(session['user_id']) }}</b></p>
           <a href="/logout"
             ><button class="btn btn-dark my-2">Wyloguj się</button></a
           >
@@ -81,7 +82,7 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="/add-course">Dodaj kurs</a>
-              <a class="dropdown-item" href="/my-courses">Zobacz swoje kursy</a>
+              <a class="dropdown-item" href="/courses">Zobacz swoje kursy</a>
             </div>
           </div>
           <a href="/create-worker-account"
@@ -94,7 +95,7 @@
               Stwórz konto studenta
             </button></a
           >
-          <p class="my-2 mx-2"><b>{{ user }}</b></p>
+          <p class="my-2 mx-2"><b>{{ username(session['user_id']) }}</b></p>
           <a href="/logout"
             ><button class="btn btn-dark my-2">Wyloguj się</button></a
           >
@@ -105,21 +106,6 @@
     {% for message in get_flashed_messages() %}
     <div class="alert alert-primary"><b>{{ message }}</b></div>
     {% endfor %} {% block content %}{% endblock %}
-    <footer
-      class="text-center text-white fixed-bottom"
-      style="background-color: #caced1"
-    >
-      <!-- Copyright -->
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-        © 2022 Copyright:
-        <a
-          class="text-white"
-          href="https://gitlab.kis.agh.edu.pl/bd-ti-2021-2022/g21"
-          >Rokoko & Big Poppa</a
-        >
-      </div>
-      <!-- Copyright -->
-    </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
