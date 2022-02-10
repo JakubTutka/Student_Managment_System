@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+{% block title %}Wydziały{% endblock %} 
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% for faculty in faculties %}
+        <div class="col-md-3 mb-2">
+            <div class="card text-center">
+                <div class="card-header text-center">
+                    <h2>{{ faculty[1] }}</h2>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ faculty[2] }}</h5>
+                    <p class="card-text">
+                        {% if faculty[3] is not none %}
+                        {{ faculty[3] }}
+                        {% else %}
+                        Brak opisu.
+                        {% endif %}
+                    </p>
+                    {% if user_fid == faculty[0]%}
+                    <a href="/faculty/{{ faculty[0] }}" class="btn btn-success">Zobacz</a>
+                    {% elif session['user_id'] %}
+                    <a href="/faculty/{{ faculty[0] }}" class="btn btn-primary">Zobacz</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

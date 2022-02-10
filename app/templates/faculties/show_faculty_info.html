@@ -1,0 +1,53 @@
+{% extends 'base.html' %} {% block title %}Wydziały{% endblock %} {% block
+content %}
+<div class="container align-items-center">
+  <h2>{{ title[0] }}</h2>
+  <div class="row">
+    <div class="table-responsive col-md-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nr.</th>
+            <th scope="col">Imię</th>
+            <th scope="col">Nazwisko</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Stopień</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for worker in workers %}
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ worker[1] }}</td>
+            <td>{{ worker[2] }}</td>
+            <td>{{ worker[3] }}</td>
+            <td>{{ worker[4] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="table-responsive col-md-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nr. Budynku</th>
+            <th scope="col">Adres</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for building in buildings %}
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ building[1] }}</td>
+            <td>{{ building[2] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

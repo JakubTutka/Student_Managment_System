@@ -50,6 +50,11 @@
               >Main AGH Page</a
             >
           </li>
+          <li class="nav-item">
+            <a href="/faculties" class="nav-link link-border"
+              >Wydziały</a
+            >
+          </li>
         </ul>
         {% if not session['user_id'] %}
         <div class="navbar-nav ms-auto">
@@ -62,15 +67,17 @@
         </div>
         {% elif session['user_type'] == 'Student' %}
         <div class="navbar-nav ms-auto">
-          <a class="btn btn-success my-2 mx-2" href="/courses">Zobacz swoje kursy</a>
-          <p class="my-2 mx-2"><b>{{ username(session['user_id']) }}</b></p>
+          <a class="btn btn-success my-2 mx-2" href="/courses"
+            >Zobacz swoje kursy</a
+          >
+          <p class="my-2 mx-2"><b>{{ username(session['user_id'])[0] }}</b></p>
           <a href="/logout"
             ><button class="btn btn-dark my-2">Wyloguj się</button></a
           >
         </div>
         {% elif session['user_type'] == 'Pracownik' %}
         <div class="navbar-nav ms-auto">
-          <div class="dropdown">
+          <div class="dropdown mx-2">
             <button
               class="btn btn-dark my-2 dropdown-toggle"
               type="button"
@@ -85,17 +92,24 @@
               <a class="dropdown-item" href="/courses">Zobacz swoje kursy</a>
             </div>
           </div>
-          <a href="/create-worker-account"
-            ><button class="btn btn-dark mx-2 my-2">
-              Stwórz konto pracownika
-            </button></a
-          >
-          <a href="/sign-up"
-            ><button class="btn btn-dark mx-2 my-2">
-              Stwórz konto studenta
-            </button></a
-          >
-          <p class="my-2 mx-2"><b>{{ username(session['user_id']) }}</b></p>
+          <div class="dropdown">
+            <button
+              class="btn btn-dark my-2 dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton2"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Stwórz konto
+            </button>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="/create-worker-account"
+                >Stwórz konto pracownika</a
+              >
+              <a class="dropdown-item" href="/sign-up">Stwórz konto studenta</a>
+            </div>
+          </div>
+          <p class="my-2 mx-2"><b>{{ username(session['user_id'])[0] }}</b></p>
           <a href="/logout"
             ><button class="btn btn-dark my-2">Wyloguj się</button></a
           >

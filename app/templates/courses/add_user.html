@@ -1,0 +1,53 @@
+{% extends "base.html" %} {% block title %}Dodaj uczestnika kursu{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="container" style="width: 60%">
+    <div class="card rounded-3">
+      <div class="card-header text-center">
+        <h2>Dodaj nowych uczestników kursu.</h2>
+      </div>
+      <div class="card-body align-items-center">
+        <form method="post">
+          <div class="form-group">
+            <label for="students">Dodaj studentów do kursu:</label>
+            <select
+              class="form-select"
+              multiple
+              aria-label="multiple select example"
+              name="students"
+              id="students"
+            >
+              {% for student in students %}
+              <option value="{{ student[0] }}">
+                {{ student[1] }} {{ student[2] }} EMAIL: {{ student[3] }}
+              </option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="workers">Dodaj innych prowadzących do kursu:</label>
+            <select
+              class="form-select"
+              multiple
+              aria-label="multiple select example"
+              name="workers"
+              id="workers"
+            >
+              {% for worker in workers %}
+              <option value="{{ worker[0] }}">
+                {{ worker[1] }} {{ worker[2] }} EMAIL: {{ worker[3] }}
+              </option>
+              {% endfor %}
+            </select>
+          </div>
+          <input
+            type="submit"
+            value="Dodaj kurs!"
+            class="btn btn-primary mt-2"
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

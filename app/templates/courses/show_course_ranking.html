@@ -1,0 +1,33 @@
+{% extends 'base.html' %} 
+{% block title %}Ranking{% endblock %} 
+{% block content %}
+<div class="container align-items-center">
+    <h2>{{ title[0] }} - ranking najlepszych studentów</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nr.</th>
+          <th scope="col">Imię</th>
+          <th scope="col">Nazwisko</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Średnia ocena</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in students %}
+        <tr>
+          <th scope="row">{{ loop.index }}</th>
+          <td>{{ student[1] }}</td>
+          <td>{{ student[2] }}</td>
+          <td>{{ student[3] }}</td>
+          {% if student[4] is none%}
+          <td>Brak ocen.</td>
+          {% else %}
+          <td>{{ student[4] }}</td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

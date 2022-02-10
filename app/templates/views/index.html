@@ -3,7 +3,18 @@
 {% block title %}Strona główna{% endblock %}
 {% block content %}
 {% if session['user_type'] == 'Student' %}
-<p>Profil studenta</p>
+<div class="container">
+    <div class="card rounded-3">
+        <div class="card-header text-center">
+            <h2>{{ user }}</h2>
+        </div>
+        <div class="card-body text-center">
+            <div class="row align-items-center justify-content-center">
+                <a href="/courses"><button class="btn btn-primary">Moje kursy</button></a>
+            </div>
+        </div>
+    </div>
+</div>
 {% elif session['user_type'] == 'Pracownik' %}
 <div class="container" style="width: 60%;">
     <div class="card rounded-3">

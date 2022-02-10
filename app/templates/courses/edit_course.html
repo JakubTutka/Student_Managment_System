@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block title %}Moje kursy{% endblock %} {% block
+content %}
+<div class="container" style="width: 60%">
+  <div class="card rounded-3">
+    <div class="card-header text-center">
+      <h2>Edytuj kurs</h2>
+    </div>
+    <div class="card-body">
+      <form method="post">
+        <div class="form-group">
+          <label for="title">Tytuł</label>
+          <input type="text" class="form-control" id="title" name="title" value="{{ course[0] }}"/>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Opis</label>
+          <textarea
+            class="form-control rounded-0"
+            id="description"
+            name="description"
+            rows="7"
+          >{{ course[1] }}</textarea>
+        </div>
+        <input type="submit" value="Zatwierdź zmiany" class="btn btn-primary mt-2" />
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

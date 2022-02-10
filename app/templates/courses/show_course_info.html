@@ -1,8 +1,22 @@
-{% extends "base.html" %} {% block title %} {{ title }}{% endblock %} {% block
-content %}
-<div class="container">
+{% extends "base.html" %} {% block title %} {{ title[0] }}{% endblock %} {%
+block content %}
+<div class="container align-items-center">
   <h2>{{ title[0] }}</h2>
   <p>{{ title[1] }}</p>
+  {% if session['user_type'] == 'Pracownik' %}
+  <a href="/course/{{ cid }}/add_user"
+    ><button class="btn btn-primary">Dodaj uczestnika kursu</button></a
+  >
+  <a href="/course/{{ cid }}/edit">
+    <button class="btn btn-dark">Edytuj kurs</button>
+  </a>
+  <a href="/course/{{ cid }}/workers">
+    <button class="btn btn-primary">Pokaż pracowników</button>
+  </a>
+  <a href="/course/{{ cid }}/ranking">
+    <button class="btn btn-dark">Ranking średniej ocen</button>
+  </a>
+  {% endif %}
   <table class="table">
     <thead>
       <tr>
@@ -14,24 +28,29 @@ content %}
       </tr>
     </thead>
     <tbody>
-        {% for student in students %}
-        <tr>
-            <th scope="row">{{ loop.index }}</th>
-            <td>{{ student[1] }}</td>
-            <td>{{ student[2] }}</td>
-            <td>{{ student[3] }}</td>
+      {% for student in students %}
+      <tr>
+        <th scope="row">{{ loop.index }}</th>
+        <td>{{ student[1] }}</td>
+        <td>{{ student[2] }}</td>
+        <td>{{ student[3] }}</td>
 
-            {% if session['user_id'] == student[0] %}
-            <td><a href="{{ url_for('courses.show_user_grades', cid=cid, uid=student[0])}}"><button class="btn btn-success">Oceny</button></a></td>
-            {% endif %}
-
-            {% if session['user_type'] == 'Pracownik' %}
-            <td><a href="/course/{{ cid }}/delete-student/{{ student[0]}}"><button class="btn btn-danger">Wypisz</button></a></td>
-            {% endif %}
-        </tr>
-        {% endfor %}
+        {% if session['user_type'] == 'Pracownik' or session['user_id'] == student[0]%}
+        <td>
+          <a
+            href="{{ url_for('courses.show_user_grades', cid=cid, uid=student[0])}}"
+            ><button class="btn btn-success">Oceny</button></a
+          >
+        </td>
+        <td>
+          <a href="/course/{{ cid }}/delete-student/{{ student[0]}}"
+            ><button class="btn btn-danger">Wypisz</button></a
+          >
+        </td>
+        {% endif %}
+      </tr>
+      {% endfor %}
     </tbody>
   </table>
 </div>
-
 {% endblock %}

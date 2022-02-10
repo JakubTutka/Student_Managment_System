@@ -11,7 +11,7 @@ content %}
             {{ course[2] }}
           </p>
           <a href="{{ url_for('courses.show_course_info', id=course[0])}}" class="btn btn-primary">Zobacz</a>
-          {% if session['user_type'] == 'Pracownik' %}
+          {% if session['user_id'] == course[3] %}
           <a href="/delete-course/{{ course[0] }}" class="btn btn-danger">Usuń</a>
           {% endif %}
         </div>
