@@ -19,3 +19,7 @@ def index():
     if session.get('user_id') is not None:
         user = get_user_name(session['user_id'])
     return render_template('views/index.html', user=user)
+
+@bp.route("/map")
+def map():
+    return render_template("views/map.html")

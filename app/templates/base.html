@@ -18,6 +18,20 @@
       .link-border:hover {
         border-bottom: 3px solid black;
       }
+      body {
+        padding-bottom: 250px;
+      }
+      .essa {
+        width: 150px; /* You can set the dimensions to whatever you want */
+        height: 100px;
+        object-fit: cover;
+      }
+      @media screen and (max-width: 1000px) {
+        footer {
+          visibility: hidden;
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
@@ -47,13 +61,14 @@
               class="nav-link link-border"
               id="agh"
               href="https://www.agh.edu.pl/"
-              >Main AGH Page</a
+              >Główna strona AGH </a
             >
           </li>
           <li class="nav-item">
-            <a href="/faculties" class="nav-link link-border"
-              >Wydziały</a
-            >
+            <a href="/faculties" class="nav-link link-border">Wydziały</a>
+          </li>
+          <li class="nav-item">
+            <a href="/map" class="nav-link link-border">Mapa kampusu</a>
           </li>
         </ul>
         {% if not session['user_id'] %}
@@ -125,5 +140,120 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <div class="hidden-xs">
+      <footer
+        class="text-center text-white fixed-bottom"
+        style="background-color: #caced1"
+      >
+        <!-- Grid container -->
+        <div class="container p-4">
+          <!-- Section: Images -->
+          <section class="">
+            <div class="row">
+              <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                <div
+                  class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                  data-ripple-color="light"
+                >
+                  <img src="/static/agh1.jpg" class="w-100 rounded essa" />
+                  <a href="https://www.agh.edu.pl/">
+                    <div
+                      class="mask"
+                      style="background-color: rgba(251, 251, 251, 0.2)"
+                    ></div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                <div
+                  class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                  data-ripple-color="light"
+                >
+                  <img src="/static/agh2.jpg" class="w-100 rounded essa" />
+                  <a href="https://www.agh.edu.pl/">
+                    <div
+                      class="mask"
+                      style="background-color: rgba(251, 251, 251, 0.2)"
+                    ></div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                <div
+                  class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                  data-ripple-color="light"
+                >
+                  <img src="/static/agh3.jpg" class="w-100 rounded essa" />
+                  <a href="https://www.agh.edu.pl/">
+                    <div
+                      class="mask"
+                      style="background-color: rgba(251, 251, 251, 0.2)"
+                    ></div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                <div
+                  class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                  data-ripple-color="light"
+                >
+                  <img src="/static/agh4.jpg" class="w-100 rounded essa" />
+                  <a href="https://www.agh.edu.pl/">
+                    <div
+                      class="mask"
+                      style="background-color: rgba(251, 251, 251, 0.2)"
+                    ></div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                <div
+                  class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                  data-ripple-color="light"
+                >
+                  <img src="/static/agh5.jpg" class="w-100 rounded essa" />
+                  <a href="https://www.agh.edu.pl/">
+                    <div
+                      class="mask"
+                      style="background-color: rgba(251, 251, 251, 0.2)"
+                    ></div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                <div
+                  class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                  data-ripple-color="light "
+                >
+                  <img src="/static/agh6.jpg" class="w-100 rounded essa" />
+                  <a href="https://www.agh.edu.pl/">
+                    <div
+                      class="mask"
+                      style="background-color: rgba(251, 251, 251, 0.2)"
+                    ></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Section: Images -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div
+          class="text-center p-3"
+          style="background-color: rgba(0, 0, 0, 0.2)"
+        >
+          © 2021 Copyright:
+          <a
+            class="text-white"
+            href="https://gitlab.kis.agh.edu.pl/bd-ti-2021-2022/g21"
+            >Rokoko & Big Poppa</a
+          >
+        </div>
+        <!-- Copyright -->
+      </footer>
+    </div>
   </body>
 </html>

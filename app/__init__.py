@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from . import db_info
 from app.database import mysql, get_user_email, get_creator_of_course
 from datetime import timedelta
@@ -16,6 +16,10 @@ def create_app():
     app.jinja_env.globals.update(username=get_user_email)
     app.jinja_env.globals.update(get_creator_of_course=get_creator_of_course)
     mysql.init_app(app)
+
+    @app.errorhandler(404)
+    def PageNotFound(error):
+        return render_template('views/error404.html')
 
     # registering blueprints
     from . import auth, views, courses, faculties
